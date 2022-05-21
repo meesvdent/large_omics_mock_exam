@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /data/leuven/306/vsc30690/miniconda3/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count    min threads    max threads
+--------  -------  -------------  -------------
+all             1              1              1
+compress        1              1              1
+vcfstats        1              1              1
+total           3              1              1
+
+Select jobs to execute...
+
+[Thu May 19 14:36:08 2022]
+rule compress:
+    input: 050.snpeff/snps.annotated.vcf
+    output: 051.snpeffgz/snps.annotated.vcf.gz
+    jobid: 4
+    resources: tmpdir=/tmp/959e7e59ad
+
+[Thu May 19 14:36:08 2022]
+Error in rule compress:
+    jobid: 4
+    output: 051.snpeffgz/snps.annotated.vcf.gz
+    shell:
+        
+        mkdir 051.snpeffgz
+        bgzip 050.snpeff/snps.annotated.vcf - > 051.snpeffgz/snps.annotated.vcf.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /lustre1/scratch/345/vsc34512/mock_exam/snakemake/.snakemake/log/2022-05-19T143608.309181.snakemake.log

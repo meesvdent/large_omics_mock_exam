@@ -1,0 +1,39 @@
+Building DAG of jobs...
+Using shell: /data/leuven/306/vsc30690/miniconda3/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count    min threads    max threads
+--------  -------  -------------  -------------
+all             1              1              1
+vcfstats        1              1              1
+total           2              1              1
+
+Select jobs to execute...
+
+[Thu May 19 15:03:18 2022]
+rule vcfstats:
+    input: 050.snpeff/snps.annotated.vcf.gz
+    output: 060.vcfstats/stats.txt, 060.vcfstats/stats.pdf
+    jobid: 3
+    resources: tmpdir=/tmp/959e7e59ad
+
+[Thu May 19 15:03:18 2022]
+Error in rule vcfstats:
+    jobid: 3
+    output: 060.vcfstats/stats.txt, 060.vcfstats/stats.pdf
+    shell:
+        
+        touch 060.vcfstats/stats.txt
+        touch 060.vcfstats/stats.pdf
+
+        bcftools stats -s - > 060.vcfstats/stats.txt
+        plot-vcfstats 060.vcfstats/stats.txt -p 060.vcfstats/stats.pdf
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job vcfstats since they might be corrupted:
+060.vcfstats/stats.txt, 060.vcfstats/stats.pdf
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /lustre1/scratch/345/vsc34512/mock_exam/snakemake/.snakemake/log/2022-05-19T150318.477725.snakemake.log

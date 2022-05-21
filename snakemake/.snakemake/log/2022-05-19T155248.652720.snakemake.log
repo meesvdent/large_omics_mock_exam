@@ -1,0 +1,42 @@
+Building DAG of jobs...
+Using shell: /data/leuven/306/vsc30690/miniconda3/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count    min threads    max threads
+--------  -------  -------------  -------------
+all             1              1              1
+snpeff          1              1              1
+vcfstats        1              1              1
+total           3              1              1
+
+Select jobs to execute...
+
+[Thu May 19 15:52:49 2022]
+rule snpeff:
+    input: 040.cleaned/snps.cleaned.vcf
+    output: 050.snpeff/snps.annotated.vcf, 050.snpeff/snpEff_summary.html, 050.snpeff/snpEff_genes.txt
+    log: 050.snpeff/snakemake.err
+    jobid: 4
+    resources: tmpdir=/tmp/959e7e59ad
+
+Terminating processes on user request, this might take some time.
+[Thu May 19 15:53:06 2022]
+Error in rule snpeff:
+    jobid: 4
+    output: 050.snpeff/snps.annotated.vcf, 050.snpeff/snpEff_summary.html, 050.snpeff/snpEff_genes.txt
+    log: 050.snpeff/snakemake.err (check log file(s) for error message)
+    shell:
+        
+
+        mkdir -p 050.snpeff
+
+        java -Xmx4096m -jar             /data/leuven/306/vsc30690/miniconda3/pkgs/snpeff-5.0-hdfd78af_1/share/snpeff-5.0-1/snpEff.jar eff GRCh38.99             -dataDir /staging/leuven/stg_00079/teaching/snpeff_db/             040.cleaned/snps.cleaned.vcf > 050.snpeff/snps.annotated.vcf
+
+        # move output files to the snpeff output folder
+        mv snpEff_genes.txt snpEff_summary.html 050.snpeff
+
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: /lustre1/scratch/345/vsc34512/mock_exam/snakemake/.snakemake/log/2022-05-19T155248.652720.snakemake.log

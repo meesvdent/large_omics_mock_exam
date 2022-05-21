@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 11 of /lustre1/scratch/345/vsc34512/mock_exam/snakemake/Snakefile:
+Missing input files for rule all:
+stats.vcfk

@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 116 of /lustre1/scratch/345/vsc34512/mock_exam/snakemake/Snakefile:
+Missing input files for rule vcfstats:
+050.snpeffz/snps.annotated.vcf.gz
